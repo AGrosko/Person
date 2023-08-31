@@ -13,21 +13,21 @@ public class PersonGenerator {
         String FileName;
         File outFile;
         PrintWriter personPrinter;
-        ArrayList<String> PersonData = new ArrayList<String>();
+        ArrayList<Person> PersonData = new ArrayList<Person>();
         Scanner in = new Scanner(System.in);
         String id;
         String FirstName;
         String LastName;
         String Title;
         int YearOfBirth;
-        int personCounter = 1;
-        int index = 0;
+        int personCounter = 0;
+        int index =0;
 
         id = SafeInput.getNonZeroLenString(in,"Enter an id for the person");
         FirstName = SafeInput.getNonZeroLenString(in,"Enter a first name for the person");
         LastName = SafeInput.getNonZeroLenString(in,"Enter a last name for the person");
         Title = SafeInput.getNonZeroLenString(in,"Enter a title for the person");
-        YearOfBirth = SafeInput.getRangedInt(in, "Enter a year of birth for the person", 0,9999);
+        YearOfBirth = SafeInput.getRangedInt(in, "Enter a year of birth for the person", 1940,2000);
 
         System.out.printf("The person you created is: %n" +
                         "id: %s%n" +
@@ -36,11 +36,10 @@ public class PersonGenerator {
                 id, Title, FirstName, LastName, YearOfBirth);
 
 
-        PersonData.add(id);
-        PersonData.add(FirstName);
-        PersonData.add(LastName);
-        PersonData.add(Title);
-        PersonData.add(Integer.toString(YearOfBirth));
+        Person toAdd = new  Person(id,FirstName,LastName,Title,YearOfBirth);
+
+        PersonData.add(toAdd);
+
 
         while(SafeInput.getYNConfirm(in,"Do you want to create another person?")){
 
@@ -50,7 +49,7 @@ public class PersonGenerator {
             FirstName = SafeInput.getNonZeroLenString(in,"Enter a first name for the person");
             LastName = SafeInput.getNonZeroLenString(in,"Enter a last name for the person");
             Title = SafeInput.getNonZeroLenString(in,"Enter a title for the person");
-            YearOfBirth = SafeInput.getRangedInt(in, "Enter a year of birth for the person", 0,9999);
+            YearOfBirth = SafeInput.getRangedInt(in, "Enter a year of birth for the person", 1940,2000);
 
             System.out.printf("The person you created is: %n" +
                             "id: %s%n" +
@@ -59,11 +58,10 @@ public class PersonGenerator {
                     id, Title, FirstName, LastName, YearOfBirth);
 
 
-            PersonData.add(id);
-            PersonData.add(FirstName);
-            PersonData.add(LastName);
-            PersonData.add(Title);
-            PersonData.add(Integer.toString(YearOfBirth));
+            toAdd = new Person(id, Title, FirstName, LastName, YearOfBirth);
+            PersonData.add(toAdd);
+
+
 
         }
 
@@ -78,15 +76,12 @@ public class PersonGenerator {
 
             //personWriter.write("This is a test.");
 
-            while (personCounter > 0){
+            while (index <= personCounter){
 
-                personPrinter.printf("%s,%s,%s,%s,%s%n",PersonData.get(index),
-                        PersonData.get(index+1),
-                        PersonData.get(index+2),
-                        PersonData.get(index+3),
-                        PersonData.get(index+4));
-                index+=5;
-                personCounter--;
+                personPrinter.println(PersonData.get(index).toCSVDataRecord());
+
+
+                index++;
             }
 
             personWriter.close();

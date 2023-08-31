@@ -55,7 +55,8 @@ public class PersonReader {
                     seperated = rec.split(",");
                     // echo to screen
 
-                    System.out.printf("\n%-4s %-10s %-10s %-4s %-5s",seperated[0],seperated[1],seperated[2],seperated[3],seperated[4]);
+                    Person toPrint = new Person(seperated[0],seperated[1],seperated[2],seperated[3],Integer.parseInt(seperated[4]));
+                    System.out.printf("\n%-4s %-10s %-10s %-4s %-5s",toPrint.getId(),toPrint.getFirstName(),toPrint.getLastName(),toPrint.getTitle(),toPrint.getYearOfBirth());
                 }
                 reader.close(); // must close the file to seal it and flush buffer
                 System.out.println("\n\nData file read!");

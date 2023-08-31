@@ -9,6 +9,15 @@ public class Person{
     String Title;
     int YearOfBirth;
 
+    public Person (String id, String FirstName,String LastName, String Title, int YearOfBirth){
+
+        this.id = id;
+        this.FirstName = FirstName;
+        this.LastName = LastName;
+        this.Title = Title;
+        this.YearOfBirth = YearOfBirth;
+    }
+
     public String toCSVDataRecord(){
         return id+","+FirstName+","+LastName+","+Title+","+Integer.toString(YearOfBirth);
     }
@@ -21,11 +30,18 @@ public class Person{
         return Title + " " + this.fullName();
     }
 
-    public int getAge(){
+    public String getAge(){
 
-        return calendar.get(Calendar.YEAR) - YearOfBirth;
+        return Integer.toString(calendar.get(Calendar.YEAR) - YearOfBirth);
 
     }
+
+    public String getAge(int year){
+
+        return Integer.toString(calendar.get(Calendar.YEAR) - year);
+
+    }
+
 
     public String getId() {
         return id;

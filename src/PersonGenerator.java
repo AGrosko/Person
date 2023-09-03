@@ -27,7 +27,7 @@ public class PersonGenerator {
         FirstName = SafeInput.getNonZeroLenString(in,"Enter a first name for the person");
         LastName = SafeInput.getNonZeroLenString(in,"Enter a last name for the person");
         Title = SafeInput.getNonZeroLenString(in,"Enter a title for the person");
-        YearOfBirth = SafeInput.getRangedInt(in, "Enter a year of birth for the person", 1940,2000);
+        YearOfBirth = SafeInput.getRangedInt(in, "Enter a year of birth for the person", 1000,2000);
 
         System.out.printf("The person you created is: %n" +
                         "id: %s%n" +
@@ -49,7 +49,7 @@ public class PersonGenerator {
             FirstName = SafeInput.getNonZeroLenString(in,"Enter a first name for the person");
             LastName = SafeInput.getNonZeroLenString(in,"Enter a last name for the person");
             Title = SafeInput.getNonZeroLenString(in,"Enter a title for the person");
-            YearOfBirth = SafeInput.getRangedInt(in, "Enter a year of birth for the person", 1940,2000);
+            YearOfBirth = SafeInput.getRangedInt(in, "Enter a year of birth for the person", 1000,2000);
 
             System.out.printf("The person you created is: %n" +
                             "id: %s%n" +

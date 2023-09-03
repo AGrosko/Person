@@ -2,12 +2,14 @@ import java.util.Calendar;
 
 public class Person{
 
-    Calendar calendar = Calendar.getInstance();
+
     String id;
     String FirstName;
     String LastName;
     String Title;
     int YearOfBirth;
+
+    Calendar calendar;
 
     public Person (String id, String FirstName,String LastName, String Title, int YearOfBirth){
 
@@ -16,6 +18,7 @@ public class Person{
         this.LastName = LastName;
         this.Title = Title;
         this.YearOfBirth = YearOfBirth;
+         calendar = Calendar.getInstance();
     }
 
     public String toCSVDataRecord(){
